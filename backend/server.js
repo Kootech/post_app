@@ -4,6 +4,7 @@ import _ from "dotenv/config";
 
 import connectDB from "./config_db.js";
 import postRouter from "./routers/post.js";
+import userRouter from "./routers/user.js";
 
 const PORT = process.env.PORT || 8080;
 
@@ -19,5 +20,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/post", postRouter);
+app.use("/user", userRouter);
 
 app.listen(PORT, () => console.log(`server listening on port ${PORT}`));

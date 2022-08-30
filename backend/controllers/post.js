@@ -13,11 +13,12 @@ export const addPost = async (req, res) => {
   if (!req.body) {
     res.status(400).send(`please add body`);
   }
-  const { title, description } = req.body;
+  const { title, description, clientId } = req.body;
   try {
     const post = await postModel.create({
       title,
       description,
+      clientId,
     });
     res.status(201).json(post);
   } catch (error) {
